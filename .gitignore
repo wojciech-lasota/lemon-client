@@ -1,0 +1,23 @@
+# NPM
+node_modules/
+*.tgz
+npm-debug.log
+.tmp/
+sh.exe.stackdump
+debug.log
+
+
+# Build
+dist/
+
+# Testing
+coverage/
+
+# Miscellaneous
+.DS_Store
+*concatenated.txt
+
+# env
+.env
+
+temp/
