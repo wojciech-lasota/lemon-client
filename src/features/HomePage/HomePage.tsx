@@ -23,6 +23,13 @@ const HomePage = (): React.JSX.Element => {
                     spaceflightnewsapi.net
                 </a>
             </h2>
+            <button
+                onClick={() => {
+                    throw new Error('This is your first error!');
+                }}
+            >
+                Break the world
+            </button>
             {isLoading && <div>Loading...</div>}
             {!isLoading && (
                 <ul className={styles.linksList}>
