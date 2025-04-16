@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './homePage.module.scss';
+
 import {
     Article,
     useGetExamplePageQuery,
@@ -8,9 +10,7 @@ import {
 const HomePage = (): React.JSX.Element => {
     const { data, error, isLoading } = useGetExamplePageQuery();
 
-    if (isLoading) return <div>Loading...</div>;
     if (error) return <div>An error occurred</div>;
-    if (!data) return <div>No data found</div>;
     return (
         <main>
             <h2>
@@ -23,19 +23,22 @@ const HomePage = (): React.JSX.Element => {
                     spaceflightnewsapi.net
                 </a>
             </h2>
-            <ul>
-                {data.results.map((article: Article) => (
-                    <li key={article.id}>
-                        <a
-                            href={article.url}
-                            rel="noopener noreferrer"
-                            target="_blank"
-                        >
-                            {article.title}
-                        </a>
-                    </li>
-                ))}
-            </ul>
+            {isLoading && <div>Loading...</div>}
+            {!isLoading && (
+                <ul className={styles.linksList}>
+                    {data?.results.map((article: Article) => (
+                        <li key={article.id}>
+                            <a
+                                href={article.url}
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >
+                                {article.title}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            )}
         </main>
     );
 };

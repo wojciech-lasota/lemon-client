@@ -4,16 +4,16 @@ import 'fonts/RobotoMono-Regular.woff2';
 import 'fonts/RobotoMono-Regular.woff';
 
 import { Helmet } from '@dr.pogodin/react-helmet';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Route, Routes } from 'react-router-dom';
 
 import styles from './app.module.scss';
 
 import { useAppSelector } from 'app/hooks';
+import Header from 'components/Header/Header';
 import NotFound from 'components/NotFound/NotFound';
 import { selectAppTheme } from 'features/AppTheme/appThemeSlice';
-import Header from 'features/Header/Header';
 import HomePage from 'features/HomePage/HomePage';
 
 const App = (): React.JSX.Element => {
@@ -22,10 +22,17 @@ const App = (): React.JSX.Element => {
         appTheme === 'dark' ? 'theme-dark' : 'theme-light'
     }`;
 
+    useEffect(() => {
+        document.documentElement.classList.remove('theme-dark', 'theme-light');
+        document.documentElement.classList.add(
+            appTheme === 'dark' ? 'theme-dark' : 'theme-light',
+        );
+    }, [appTheme]);
+
     return (
         <div className={classNames}>
             <Helmet>
-                <title>Reactplate</title>
+                <title>reactplate</title>
             </Helmet>
             <ErrorBoundary
                 fallback={
