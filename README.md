@@ -1,6 +1,6 @@
 # reactplate
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/26fb7e7c-f69d-40fa-b142-92a32d30b80f/deploy-status)](https://app.netlify.com/sites/reactplate-tenemo/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cc163b0a-5866-419e-bdb0-25db73011a09/deploy-status)](https://app.netlify.com/sites/lemon-client/deploys)
 
 A React + modern Redux (RTK) boilerplate for a fully configured quick start with automatic formatting and linting with ESLint & Prettier.
 
